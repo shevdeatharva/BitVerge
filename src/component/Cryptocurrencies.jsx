@@ -29,7 +29,7 @@ const Cryptocurrencies = ({ simplified }) => {
       </div>
         {/* // remove the searchbar from home page and avail at crypto page */}
     
-      <Row gutter={[32, 32]} className="crypto-card-container">
+      <Row gutter={[32, 32]} className="crypto-card-container" >
         {cryptos &&
           cryptos.map((currency) => (
             <Col

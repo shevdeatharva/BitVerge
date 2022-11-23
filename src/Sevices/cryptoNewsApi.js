@@ -22,7 +22,12 @@ const cryptoNewsHeader = {
   
 // };
 
-
+// const baseNewsurl= 'https://crypto-news-live3.p.rapidapi.com/news'
+// const cryptoNewsHeader = {
+//     'X-RapidAPI-Key': '0c709df4eemsh6161f6caf2cdc44p132b38jsnd5ad17446c9f',
+//     'X-RapidAPI-Host': 'crypto-news-live3.p.rapidapi.com'
+  
+// };
 const createNewsRequest = (url) => ({ url, headers: cryptoNewsHeader });
 
 export const cryptoNewsApi = createApi({

@@ -5,6 +5,7 @@ import { Link } from 'react-router-dom'
 import { useGetCryptosQuery } from "../Sevices/Cryptoapi"; 
 import Cryptocurrencies from "./Cryptocurrencies";
 import News from "./News";
+const {Title}= Typography
 const Homepage = () => {
 
   const { data, isFetching } = useGetCryptosQuery(1);
@@ -25,14 +26,14 @@ console.log(data)
           </Col>
         </Row>
       <div className="home-heading-container">
-        <Typography.Title level={2} className="home-title">Top Cryptocurrencis in the world</Typography.Title>
-        <Typography.Title level={4} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Typography.Title> 
+        <Title level={2} className="home-title">Top Cryptocurrencis in the world</Title>
+        <Title level={4} className="show-more"><Link to="/cryptocurrencies">Show more</Link></Title> 
     
       </div>
       <Cryptocurrencies simplified />
       <div className="home-heading-container">
-        <Typography.Title level={2} className="home-title">Latest News</Typography.Title>
-        <Typography.Title level={4} className="show-more"><Link to="/news">Show more</Link></Typography.Title> 
+        <Title level={2} className="home-title">Latest News</Title>
+        <Title level={4} className="show-more"><Link to="/news">Show more</Link></Title> 
     
       </div>
       <News simplified/>

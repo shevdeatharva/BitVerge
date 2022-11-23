@@ -11,11 +11,12 @@ const News = ({simplified}) =>
   const [newsCategory, setNewsCategory]= useState('');
   const { data: cryptosNews } = useGetNewsCryptosQuery({ newsCategory , count: simplified ? 6 : 12 });
   const { data} = useGetCryptosQuery(100 )
-  //console.log(cryptosNews);
+  console.log(cryptosNews);
   
   if(!cryptosNews?.value) return 'Loading...';
   return (
     <Row gutter={[32, 32]}>
+     
       {!simplified && (
         <Col span={24}>
           <Select showSearch
@@ -31,7 +32,9 @@ const News = ({simplified}) =>
         </Col>
       )}
       {cryptosNews.value.map((news) => (
+      
         <Col xs={24} sm={12} lg={8} key={news.rank}>
+            
           <Card hoverable className="news-card">
             <a href={news.url} target="_blank" rel="noreferrer">
               <div className="news-image-container">
@@ -39,8 +42,8 @@ const News = ({simplified}) =>
                 <img style={{maxWidth: '200px', maxHeight:'100px'}} src={news?.image?.thumbnail?.contentUrl || demoImage} alt="news"/>
               </div>
               <p>
-                {news.description > 100 ? `${news.description.subString(0, 100)}...`
-                  : news.description}
+                {news.title > 100 ? `${news.title.subString(0, 100)}...`
+                  : news.title}
               </p>
               <div className="provider-container">
                 <div>

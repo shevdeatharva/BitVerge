@@ -9,12 +9,14 @@ const LineChart = ({ cryptoSt, coinName, currentPrice, coinChange }) => {
   const coinPrice = [];
   const coinTimestamp = [];
 
-  for (let i = 0; i < cryptoSt?.data?.coins?.length; i++){
+  for (let i = 0; i < cryptoSt?.data?.coins?.length; i++) {
+    
     coinPrice.push(cryptoSt.data.coins.price);
-    coinTimestamp.push(new Date(cryptoSt.data.coins[i].sparkline).toLocaleDateString());
+    coinTimestamp.push(new Date(cryptoSt.data.coins[i].timestamp).toLocaleDateString());
+    console.log(i);
   }
-  console.log(coinTimestamp);
-  console.log(coinPrice);
+  
+
   const data = {
     labels: coinTimestamp,
     datasets: [
@@ -28,15 +30,10 @@ const LineChart = ({ cryptoSt, coinName, currentPrice, coinChange }) => {
     ],
   }
 
+
   const options = {
     scales: {
       yAxes: 
-        {
-          ticks: {
-            beginAtZero: true
-          },
-        },
-        xAxes: 
         {
           ticks: {
             beginAtZero: true

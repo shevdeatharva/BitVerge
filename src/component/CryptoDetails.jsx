@@ -4,7 +4,6 @@ import { useParams } from "react-router-dom";
 import millify from "millify";
 import { Col, Row, Typography, Select } from 'antd'
 import {CheckOutlined,NumberOutlined, ThunderboltOutlined, MoneyCollectOutlined, DollarCircleOutlined, FundOutlined, ExclamationCircleOutlined, StopOutlined, ControlOutlined } from "@ant-design/icons";
-import { convertLegacyProps } from "antd/lib/button/button";
 import { useGetCryptoDetailsQuery,useGetCryptoHistoryQuery } from "../Sevices/Cryptoapi";
 import LineChart from "./lineChart";
 
@@ -16,10 +15,10 @@ const CryptoDetails = () => {
   const { coinId } = useParams();
   const [timeperiod, setTimePeriod] = useState('7d')
   const { data: cryptosinfo, isLoading } = useGetCryptoDetailsQuery(coinId)
-  const {data: coinHistory, isFetching}= useGetCryptoHistoryQuery(coinId, timeperiod)
+  const {data: cryptoSt, isFetching}= useGetCryptoHistoryQuery(coinId, timeperiod)
   const cryptoDetails = cryptosinfo?.data?.coins[coinId-1]
   const cryptostats = cryptosinfo?.data?.stats
-  const cryptost = coinHistory?.data?.coins?.sparkline;
+  const cryptost =cryptoSt?.data?.coins[coinId-1];
   console.log(cryptoDetails);
   console.log(cryptost);
   if(isLoading) return "Loading..."
